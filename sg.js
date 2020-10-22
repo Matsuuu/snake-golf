@@ -13,7 +13,7 @@ customElements.define(
                 let ss = e.key.substr(5, 1).toLowerCase();
                 if (k.includes(ss) && kp[ss] != this.dr) this.dr = ss;
             });
-            setInterval(this.uh.bind(this), sp.get('s') || 1000);
+            setInterval(this.uh.bind(this), sp.get('s') || 200);
         }
 
         s() {
