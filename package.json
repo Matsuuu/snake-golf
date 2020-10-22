@@ -1,0 +1,23 @@
+{
+  "name": "snake-golf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wds --node-resolve --app-index index.html --open --watch",
+    "minify": "minify sg.js >> sm.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@simplr-wc/eslint-config": "^1.0.1",
+    "@simplr-wc/prettier-config": "^1.0.1",
+    "@web/dev-server": "0.0.15"
+  },
+  "prettier": "@simplr-wc/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "@simplr-wc/eslint-config"
+    ]
+  }
+}
