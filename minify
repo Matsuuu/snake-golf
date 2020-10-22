@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm docs/mini.html
-echo "<s-g></s-g><script>" >> docs/mini.html
-minify sg.js >> docs/mini.html
-echo "</script>" >> docs/mini.html
+rm docs/index.html
+echo "<s-g></s-g><script>" >> docs/index.html
+minify sg.js >> docs/index.html
+echo "</script>" >> docs/index.html
