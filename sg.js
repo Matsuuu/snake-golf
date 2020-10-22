@@ -20,21 +20,9 @@ customElements.define(
             this.d = sp.get('d') || 10;
             this.dm = this.d - 1;
             this.shadowRoot.innerHTML = `
-<style>
-:host {
-    display: flex;
-    width: 800px;
-    height: 800px;
-    flex-wrap: wrap;
-}
-s-c {
-    flex-basis: ${100 / this.d}%;
-    border: 1px solid #000;
-    box-sizing: border-box;
-}
-s-c[o] { background: #000; }
-s-c[f] { background: red; }
-</style>
+<style>:host{display: flex;width: 800px;height: 800px;flex-wrap: wrap;}s-c{flex-basis:${
+                100 / this.d
+            }%;border:1px solid #000;box-sizing:border-box;}s-c[o] {background:#000;}s-c[f]{background:red;}</style>
 ${`<s-c></s-c>`.repeat(this.d ** 2)}`;
             this.cs = this.shadowRoot.querySelectorAll('s-c');
             this.hd = { x: 5, y: 6, el: this.cs[6 * 10 + 5] };
@@ -63,9 +51,7 @@ ${`<s-c></s-c>`.repeat(this.d ** 2)}`;
             }
             hd.el.setAttribute('o', '');
             tl.push(hd.el);
-            if (tl.length > this.l) {
-                tl.shift().removeAttribute('o');
-            }
+            if (tl.length > this.l) tl.shift().removeAttribute('o');
             if (hd.el === this.f) this.ef();
         }
 
