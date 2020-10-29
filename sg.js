@@ -1,17 +1,17 @@
 var w = window;
 var sp = new URLSearchParams(w.location.search);
-const kp = { u: 'd', d: 'u', l: 'r', r: 'l' };
-const k = Object.keys(kp);
+var o = { u: 'd', d: 'u', l: 'r', r: 'l' };
+var k = Object.keys(o);
 customElements.define(
     's-g',
     class SG extends HTMLElement {
         constructor() {
             super();
-            this.attachShadow({ mode: 'open' });
+            this.r = this.attachShadow({ mode: 'open' });
             this.s();
             w.addEventListener('keydown', e => {
                 let ss = e.key.substr(5, 1).toLowerCase();
-                if (k.includes(ss) && kp[ss] != this.dr) this.dr = ss;
+                if (k.includes(ss) && o[ss] != this.dr) this.dr = ss;
             });
             setInterval(this.uh.bind(this), sp.get('s') || 200);
         }
@@ -19,12 +19,12 @@ customElements.define(
         s() {
             this.d = sp.get('d') || 10;
             this.dm = this.d - 1;
-            this.shadowRoot.innerHTML = `
+            this.r.innerHTML = `
 <style>:host{display: flex;width: 800px;height: 800px;flex-wrap: wrap;}s-c{flex-basis:${
                 100 / this.d
             }%;border:1px solid #000;box-sizing:border-box;}s-c[o] {background:#000;}s-c[f]{background:red;}</style>
 ${`<s-c></s-c>`.repeat(this.d ** 2)}`;
-            this.cs = this.shadowRoot.querySelectorAll('s-c');
+            this.cs = this.r.querySelectorAll('s-c');
             this.hd = { x: 5, y: 6, el: this.cs[6 * 10 + 5] };
             this.tl = [];
             this.dr = 'u';
@@ -33,9 +33,7 @@ ${`<s-c></s-c>`.repeat(this.d ** 2)}`;
         }
 
         uh() {
-            let dr = this.dr;
-            let hd = this.hd;
-            let tl = this.tl;
+            let [dr, hd, tl] = [this.dr, this.hd, this.tl];
             if (dr == 'u') hd.y--;
             if (dr == 'd') hd.y++;
             if (dr == 'l') hd.x--;
