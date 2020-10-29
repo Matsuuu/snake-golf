@@ -1,7 +1,7 @@
 var w = window;
 var sp = new URLSearchParams(w.location.search);
-const k = ['u', 'd', 'l', 'r'];
 const kp = { u: 'd', d: 'u', l: 'r', r: 'l' };
+const k = Object.keys(kp);
 customElements.define(
     's-g',
     class SG extends HTMLElement {
